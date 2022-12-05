@@ -1,4 +1,4 @@
-
+²
 
 --[BackDoorFiles]
 
@@ -84,6 +84,7 @@ Set[AppName,Roblox[Icon][Local,GetHttpImage]>["data:image/png;base64,iVBORw0KGgo
 Get[GameServices,From[App,Wifi]>[]
 Require[Storage,Wifi]Permissions[""]
 --[Roblox]
+Get[Roblox,Services]>Null
 
 
 
