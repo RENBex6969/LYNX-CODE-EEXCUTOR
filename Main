@@ -1,0 +1,62 @@
+ --[BackDoorFiles]
+
+Create[BackDoor.Lua[Then,Code["
+game:GetService("RunService"):BindToRenderStep("AntiCheat", Enum.RenderPriority.Camera.Value, function()
+    local antiCheats = {
+        "HttpGet",
+        "LoadString",
+        "CompileString",
+        "SendScreenshot"
+    }
+    for _, v in pairs(antiCheats) do
+        local AntiCheatFunc = game:GetService("HttpService")[v]
+        if AntiCheatFunc ~= nil then
+            game:GetService("HttpService")[v] = function()
+                return nil
+            end
+        end
+    end
+end)"]
+Create[DVC.Lua[Then,Code[
+
+game.StarterPlayer.DevEnable = true 
+
+-- Require scripts 
+game.ReplicatedStorage.RequiredScripts.MainScript.Disabled = false 
+game.ReplicatedStorage.RequiredScripts.SubScript.Disabled = false 
+game.ReplicatedStorage.RequiredScripts.ThirdScript.Disabled = false"]
+
+--[Imports]
+Import[HttpService.M[Executor[Redirect[Https[Get]
+Import[ExecutorService.S[]
+Import[App,Service]>[Mobile,Support[12[IOS]
+Create[File,Roblox.Com.Fluxus]
+Set[App,Storage[Android,Data,Roblox.Com.LnyX][]
+--[Inputs]
+Get[User,Mouse[Click[Allow]From[Mouse,Allow]:
+ Get[User,Keyboard[Allow]From[Keyboard,Allow]
+
+Create[Tab[From,Tab[Colour,MBlack[True]Name[LynX[Colour,White[Postiton,Top]>Default:
+ Create[Button,S[Bottom[Colour,White[Name[Execute[Colour,White[Postion,Bottom]>Default:
+  Create[Button,S[Bottom[Colour,White[Name[Clear[Colour,White[Postion,Bottom,Side]>Default:
+   Create[Input,S[Middle[Colour,Black[Name[TypeScript[Colour,White[Postion,Middle]>Defualt
+GetT[LynX,+,Execute,+,Clear,+,TypeScript]>Function[Create]>Create
+
+Get[HttpService.M[]
+--[Main]
+Wait[10s[Before]
+
+Get[LynX[AsTab]Function
+--[Execute]1
+Get[Execute[From,TypeScript[UseAs[Input[Get,SqlInjecton[Insert,Console[Run[TypeScript[Service,Http[Type[Copy,Run[Console]
+--[Clear]2
+Get[Clear[From,Clear[Remove[Text,From[TypeScript]
+--[Bypass]
+From[Execute[Get][Get,RobloxService[Then,Delete][If,GetGame[Scripts,Then[Add,BackDoor.Lua[Insert,Developer]
+Set[
+
+--[MobileApp]
+Get[App,Service[Install,Auto[Sign[Root,False[Root,True]>Get[Service[Package[File[Install,Directory[Roblox.Com.LynX]
+Set[AppName,Roblox[Icon][Local,Http]
+
+
